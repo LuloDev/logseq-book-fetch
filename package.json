@@ -1,8 +1,8 @@
 {
   "name": "logseq-book-fetch",
-  "description": "Support more actions from custom editor slash command.",
+  "description": "Logseq plugin that fetches book data based on an ISBN using the Google Books API",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": ["logseq", "logseq-plugin", "Google book Api"],
   "main": "dist/index.html",
   "targets": {
     "main": false
@@ -14,7 +14,9 @@
   },
   "license": "MIT",
   "logseq": {
-    "id": "_9wdt8o0x4"
+    "title": "Book Fetch",
+    "icon": "./icon.png",
+    "id": "logseq-book-fetch"
   },
   "dependencies": {
     "@logseq/libs": "^0.0.17",
