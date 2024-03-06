@@ -1,6 +1,11 @@
 import '@logseq/libs';
 import { GoogleBookService } from './services/googleBookService';
 
+/**
+ * Retrieves book data based on the provided ISBN.
+ * @param isbn - The ISBN of the book.
+ * @returns An array of strings representing the book data.
+ */
 async function getDataBook(isbn: string): Promise<string[]> {
   const bookService = new GoogleBookService();
   const book = await bookService.getBook(isbn);
