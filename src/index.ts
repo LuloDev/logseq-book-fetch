@@ -4,19 +4,22 @@ import { GoogleBookService } from './services/googleBookService';
 async function getDataBook(isbn: string): Promise<string[]> {
   const bookService = new GoogleBookService();
   const book = await bookService.getBook(isbn);
+
   if (!book) {
     logseq.UI.showMsg(`
     [:div.p-2
       [:h1 "Book not found!"]
     ]
     `);
-    return;
+    return [];
   }
+
   logseq.UI.showMsg(`
   [:div.p-2
     [:h1 "${book.title}"]
   ]
   `);
+
   return [
     `![${book.title}](${book.thumbnailUrl ?? ''})`,
     `**Title:** ${book.title}`,
@@ -32,13 +35,17 @@ async function getDataBook(isbn: string): Promise<string[]> {
 function main() {
   logseq.Editor.registerSlashCommand('Book Fetch', async () => {
     const { content, uuid } = (await logseq.Editor.getCurrentBlock()) ?? {};
+
     if (!content) return;
+
     const isbn = content;
     const data = await getDataBook(isbn);
     const blocks = data.map((it) => ({ content: it }));
+
     await logseq.Editor.insertBatchBlock(uuid, blocks, {
       sibling: false,
     });
   });
 }
+
 logseq.ready(main).catch(console.error);
