@@ -8,4 +8,6 @@ export type Book = {
   publisher: string;
   description: string;
   thumbnailUrl: string | undefined;
+  categories: string[];
+  maturityRating: string | undefined;
 };

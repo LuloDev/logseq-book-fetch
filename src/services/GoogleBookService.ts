@@ -28,6 +28,8 @@ export class GoogleBookService implements IBookService {
       publisher: book.publisher,
       description: book.description,
       thumbnailUrl: book.imageLinks?.thumbnail,
+      categories: book.categories ?? [],
+      maturityRating: book.maturityRating,
     };
   }
 }
