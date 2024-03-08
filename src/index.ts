@@ -8,7 +8,7 @@ import { GoogleBookService } from './services/GoogleBookService';
  * @param isbn - The ISBN of the book.
  * @returns An array of strings representing the book data.
  */
-async function getDataBook(isbn: string): Promise<string[]> {
+async function getDataBook(isbn: string): Promise<[string, string[]]> {
   const bookService = new GoogleBookService();
   const book = await bookService.getBook(isbn);
 
@@ -18,7 +18,7 @@ async function getDataBook(isbn: string): Promise<string[]> {
       [:h1 "Book not found!"]
     ]
     `);
-    return [];
+    return [null, []];
   }
 
   logseq.UI.showMsg(`
@@ -81,7 +81,7 @@ async function getDataBook(isbn: string): Promise<string[]> {
     result.push(`**Description:** ${book.description ?? 'N/A'}`);
   }
 
-  return result;
+  return [book.title, result];
 }
 
 function main() {
@@ -92,8 +92,10 @@ function main() {
     if (!content) return;
 
     const isbn = content;
-    const data = await getDataBook(isbn);
+    const [title, data] = await getDataBook(isbn);
     const blocks = data.map((it) => ({ content: it }));
+    if (!title) return;
+    await logseq.Editor.updateBlock(uuid, title);
 
     await logseq.Editor.insertBatchBlock(uuid, blocks, {
       sibling: false,
