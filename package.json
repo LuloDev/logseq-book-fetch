@@ -1,7 +1,7 @@
 {
   "name": "logseq-book-fetch",
   "description": "Logseq plugin that fetches book data based on an ISBN using the Google Books API",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["logseq", "logseq-plugin", "Google book Api"],
   "main": "dist/index.html",
   "targets": {
