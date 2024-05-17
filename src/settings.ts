@@ -2,80 +2,12 @@ import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 
 export const settings: SettingSchemaDesc[] = [
   {
-    key: 'enableTitle',
-    description: 'Enable this to add the title of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the title of the book',
-  },
-  {
-    key: 'enableThumbnail',
-    description: 'Enable this to add the thumbnail of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the thumbnail of the book',
-  },
-  {
-    key: 'enableISBN',
-    description: 'Enable this to add the ISBN of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the ISBN of the book',
-  },
-  {
-    key: 'enableAuthors',
-    description: 'Enable this to add the authors of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the authors of the book',
-  },
-  {
-    key: 'enablePublishedAt',
-    description: 'Enable this to add the published date of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the published date of the book',
-  },
-  {
-    key: 'enablePages',
-    description: 'Enable this to add the number of pages of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the number of pages of the book',
-  },
-  {
-    key: 'enableLanguage',
-    description: 'Enable this to add the language of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the language of the book',
-  },
-  {
-    key: 'enablePublisher',
-    description: 'Enable this to add the publisher of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the publisher of the book',
-  },
-  {
-    key: 'enableCategories',
-    description: 'Enable this to add the categories of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the categories of the book',
-  },
-  {
-    key: 'enableMaturityRating',
-    description: 'Enable this to add the maturity rating of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the maturity rating of the book',
-  },
-  {
-    key: 'enableDescription',
-    description: 'Enable this to add the description of the book',
-    type: 'boolean',
-    default: true,
-    title: 'Add the description of the book',
+    key: 'template',
+    description:
+      'The template to use when fetching a book. Use the following variables: title, isbn, authors, publishedAt, categories, pages, language, publisher, maturityRating, description',
+    type: 'string',
+    default:
+      '- Title: {{title}}\n- ISBN: {{isbn}}\n- Authors: {{authors}}\n- Published At: {{publishedAt}}\n- Categories: {{categories}}\n- Pages: {{pages}}\n- Language: {{language}}\n- Publisher: {{publisher}}\n- Maturity Rating: {{maturityRating}}\n- Description: {{description}}',
+    title: 'Template',
   },
 ];
