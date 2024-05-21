@@ -124,12 +124,11 @@ function main() {
       }
     }
     const [title, data] = await getDataBook(isbn);
-    const { template } = logseq.settings;
+    let { template } = logseq.settings;
     if (!template || typeof template !== 'string') {
-      logseq.UI.showMsg(`[:h1 "Template not found!"]`);
-      return;
+      template = settings.find((setting) => setting.key === 'template').default;
     }
-    const blocks = proccessTemplate(template, data);
+    const blocks = proccessTemplate(template as string, data);
     if (blocks.length === 0) {
       logseq.UI.showMsg(`
       [:div.p-2
