@@ -114,7 +114,7 @@ function main() {
 
     if (!content) return;
 
-    const isOnlyISBN = content.match(/^\d{10,13}$/);
+    const isOnlyISBN = content.match(/^\d{10,13}\s*$/);
     let isbn = content;
     if (!isOnlyISBN) {
       isbn = content.match(/\d{10,13}(?=\s*$)/)?.[0];
@@ -153,6 +153,7 @@ function main() {
       return;
     }
     if (!title) return;
+    await logseq.Editor.updateBlock(uuid, blocks.shift()?.content);
     await logseq.Editor.insertBatchBlock(uuid, blocks, {
       sibling: false,
     });
