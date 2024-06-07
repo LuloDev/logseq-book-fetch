@@ -78,7 +78,7 @@ Here are some examples of how you can use the template configuration:
 
 ### Example 1: Simple Template
 
-```json
+```
 {{title}} by {{authors}}
 ```
 
@@ -86,7 +86,7 @@ Here are some examples of how you can use the template configuration:
 
 ### Example 2: Detailed Template with Line Breaks
 
-```json
+```
 - Title: {{title}}\n- Authors: {{authors}}\n- ISBN: {{isbn}}\n- Published At: {{publishedAt}}\n- Categories: {{categories}}\n- Pages: {{pages}}\n- Language: {{language}}\n- Publisher: {{publisher}}\n- Maturity Rating: {{maturityRating}}\n- Description: {{description}}
 ```
 
@@ -94,7 +94,7 @@ Here are some examples of how you can use the template configuration:
 
 ### Example 3: Detailed Template table row
 
-```json
+```
 | ![Book Cover]({{thumbnail}}) | {{title}} | {{isbn}} | {{authors}} | {{publishedAt}} | {{categories}} | {{pages}} |
 ```
 
@@ -106,18 +106,14 @@ Here are some examples of how you can use the template configuration:
 
 To build the project, run
 
-```
-
+```bash
 pnpm run build
-
 ```
 
 To start the development, run
 
-```
-
+```bash
 pnpm run dev
-
 ```
 
 <p align="right">(<a href="#readme-top">Go Top</a>)</p>
