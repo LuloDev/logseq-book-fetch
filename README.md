@@ -141,7 +141,3 @@ LuloDev
 [stars-url]: https://github.com/LuloDev/logseq-book-fetch/stargazers
 [issues-shield]: https://img.shields.io/github/issues/LuloDev/logseq-book-fetch.svg?style=for-the-badge
 [issues-url]: https://github.com/LuloDev/l`ogseq-book-fetch/issues
-
-```
-
-```
