@@ -1,5 +1,5 @@
 import { Book } from '../enities/Book';
-import { GoogleBookResponse } from '../enities/GoogleBook';
+import { GoogleBookResponse, Item } from '../enities/GoogleBook';
 import { IBookService } from './IBookService';
 
 export class GoogleBookService implements IBookService {
@@ -13,11 +13,14 @@ export class GoogleBookService implements IBookService {
   async getBook(isbn: string): Promise<Book | null> {
     const url = `${this.baseUrl}?q=isbn:${isbn}`;
     const response = await fetch(url);
-    const data: GoogleBookResponse = await response.json();
-    if (data.totalItems === 0) {
+    const resultSearch: GoogleBookResponse = await response.json();
+    if (resultSearch.totalItems === 0) {
       return null;
     }
-    const book = data.items[0].volumeInfo;
+    const urlBook = `${this.baseUrl}/${resultSearch.items[0].id}`;
+    const responseBook = await fetch(urlBook);
+    const data: Item = await responseBook.json();
+    const book = data.volumeInfo;
     return {
       isbn,
       title: book.title,
