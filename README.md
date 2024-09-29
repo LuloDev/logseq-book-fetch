@@ -72,6 +72,8 @@ The template is a string that contains various keys enclosed in double curly bra
 
 You can use `\n` to insert a line break in the template. For example, the following template:
 
+> **Note:** If you edit the content directly in the `settings.json` file of the Logseq plugin configurations, you should use `\\n` for line breaks. However, if you edit it through the Logseq app, you only need to use `\n`.
+
 ## Examples
 
 Here are some examples of how you can use the template configuration:
@@ -89,6 +91,8 @@ Here are some examples of how you can use the template configuration:
 ```
 - Title: {{title}}\n- Authors: {{authors}}\n- ISBN: {{isbn}}\n- Published At: {{publishedAt}}\n- Categories: {{categories}}\n- Pages: {{pages}}\n- Language: {{language}}\n- Publisher: {{publisher}}\n- Maturity Rating: {{maturityRating}}\n- Description: {{description}}
 ```
+
+> **Note:** If you edit the content directly in the `settings.json` file of the Logseq plugin configurations, you should use `\\n` for line breaks. However, if you edit it through the Logseq app, you only need to use `\n`.
 
 ![Example 2](docs/images/output-2.gif)
 
